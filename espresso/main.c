@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     backward_compatibility_hack(&argc, argv, &option, &out_type);
 
     /* parse command line options*/
-    while ((i = getopt(argc, argv, "D:S:de:o:r:stv:x")) != EOF) {
+    while ((i = getopt(argc, argv, "D:S:de:o:r:stv:xV")) != EOF) {
         switch (i) {
             case 'D': /* -Dcommand invokes a subcommand */
                 for (j = 0; option_table[j].name != 0; j++) {
@@ -153,6 +153,10 @@ int main(int argc, char *argv[])
                     exit(1);
                 }
                 break;
+
+            case 'V':
+                printf("%s\n", VERSION);
+                exit(0);
 
             default:
                 usage();
@@ -645,6 +649,7 @@ void usage() {
     printf("  -t        Provide longer execution trace\n");
     printf("  -x        Suppress printing of solution\n");
     printf("  -v[type]  Verbose debugging detail (-v '' for all)\n");
+    printf("  -V        Print version information and exit\n");
     printf("  -D[cmd]   Execute subcommand 'cmd':\n");
     subcommands();
     printf("  -Sn       Select strategy for subcommands:\n");

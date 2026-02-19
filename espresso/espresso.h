@@ -420,7 +420,9 @@ typedef struct {
 #define SHARP   0x2000
 #define IRRED1  0x4000
 
-#define VERSION "UC Berkeley, Espresso Version v2.4, Release date 06/25/21"
+#define VERSION \
+    "Espresso Version v3.0 (based on UC Berkeley v2.4)\n" \
+    "Release date 27/10/2025"
 
 /* Define constants used for recording program statistics */
 #define TIME_COUNT     22
