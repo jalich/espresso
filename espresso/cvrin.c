@@ -26,7 +26,8 @@ char *get_word(FILE *fp, char *word)
         ;
     word[i++] = ch;
     while ((ch = getc(fp)) != EOF && !isspace(ch))
-        word[i++] = ch;
+        if (i < 254)
+            word[i++] = ch;
     word[i++] = '\0';
     return word;
 }
