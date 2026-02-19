@@ -407,7 +407,7 @@ loop:
                     for (i = 0; i < pair->cnt; i++) {
                         (void)get_word(fp, word);
                         if (word[0] == '(')
-                            (void)strcpy(word, word + 1);
+                            (void)memmove(word, word + 1, strlen(word));
                         if (label_index(PLA, word, &var, &j)) {
                             pair->var1[i] = var + 1;
                         } else {
