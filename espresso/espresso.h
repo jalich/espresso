@@ -419,8 +419,8 @@ typedef struct {
 #define IRRED1  0x4000
 
 #define VERSION \
-    "Espresso Version v3.0 (based on UC Berkeley v2.4)\n" \
-    "Release date 27/10/2025"
+    "Espresso Version v3.0.1 (based on UC Berkeley v2.4)\n" \
+    "Release date 19/02/2026"
 
 /* Define constants used for recording program statistics */
 #define TIME_COUNT     22
