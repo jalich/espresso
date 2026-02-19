@@ -615,9 +615,9 @@ pset_family sf_copy_col(pset_family dst, int dstcol, pset_family src, int srccol
 
     /* CHEAT! form these constants outside the loop */
     word_test = WHICH_WORD(srccol);
-    bit_test = 1 << WHICH_BIT(srccol);
+    bit_test = 1u << WHICH_BIT(srccol);
     word_set = WHICH_WORD(dstcol);
-    bit_set = 1 << WHICH_BIT(dstcol);
+    bit_set = 1u << WHICH_BIT(dstcol);
 
     pdest = dst->data;
     foreach_set(src, last, p) {

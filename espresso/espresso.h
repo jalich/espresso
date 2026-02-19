@@ -153,9 +153,9 @@ typedef struct set_family {
 #define set_free(r)    FREE(r)
 
 /* Check for set membership, remove set element and insert set element */
-#define is_in_set(set, e)  (set[WHICH_WORD(e)] & (1 << WHICH_BIT(e)))
-#define set_remove(set, e) (set[WHICH_WORD(e)] &= ~(1 << WHICH_BIT(e)))
-#define set_insert(set, e) (set[WHICH_WORD(e)] |= 1 << WHICH_BIT(e))
+#define is_in_set(set, e)  (set[WHICH_WORD(e)] & (1u << WHICH_BIT(e)))
+#define set_remove(set, e) (set[WHICH_WORD(e)] &= ~(1u << WHICH_BIT(e)))
+#define set_insert(set, e) (set[WHICH_WORD(e)] |= 1u << WHICH_BIT(e))
 
 /* Inline code substitution for those places that REALLY need it on a VAX */
 #ifdef NO_INLINE
@@ -465,11 +465,12 @@ typedef struct {
 
 #define PUTINPUT(c, pos, value)                                 \
     c[WHICH_WORD(2 * pos)] =                                    \
-        (c[WHICH_WORD(2 * pos)] & ~(3 << WHICH_BIT(2 * pos))) | \
+        (c[WHICH_WORD(2 * pos)] & ~(3u << WHICH_BIT(2 * pos))) | \
         (value << WHICH_BIT(2 * pos))
-#define PUTOUTPUT(c, pos, value)                                        \
-    c[WHICH_WORD(pos)] = (c[WHICH_WORD(pos)] & (1 << WHICH_BIT(pos))) | \
-                         (value << WHICH_BIT(pos))
+/* Note: pos is an absolute bit position, not a logical output index */
+#define PUTOUTPUT(c, pos, value)                                         \
+    c[WHICH_WORD(pos)] = (c[WHICH_WORD(pos)] & ~(1u << WHICH_BIT(pos))) | \
+                         ((value) << WHICH_BIT(pos))
 
 #define TWO  3
 #define DASH 3

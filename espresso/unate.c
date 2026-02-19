@@ -29,9 +29,9 @@ pcover map_cover_to_unate(pcube *T)
 
             /* Copy a column from T to A */
             word_test = WHICH_WORD(i);
-            bit_test = 1 << WHICH_BIT(i);
+            bit_test = 1u << WHICH_BIT(i);
             word_set = WHICH_WORD(ncol);
-            bit_set = 1 << WHICH_BIT(ncol);
+            bit_set = 1u << WHICH_BIT(ncol);
 
             pA = A->data;
             for (T1 = T + 2; (p = *T1++) != 0;) {
