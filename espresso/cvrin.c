@@ -83,7 +83,7 @@ void read_cube(FILE *fp, pPLA PLA)
 
         /* Read a symbolic multiple-valued variable */
         if (cube.part_size[var] < 0) {
-            (void)fscanf(fp, "%s", token);
+            (void)fscanf(fp, "%255s", token);
             if (equal(token, "-") || equal(token, "ANY")) {
                 if (kiss && var == cube.num_vars - 2) {
                     /* leave it empty */
