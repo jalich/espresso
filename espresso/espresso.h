@@ -324,9 +324,7 @@ extern int bit_count[256];
 #define pcover        pset_family
 #define new_cover(i)  sf_new(i, cube.size)
 #define free_cover(r) sf_free(r)
-#define free_cubelist(T) \
-    FREE(T[0]);          \
-    FREE(T);
+#define free_cubelist(T) do { FREE(T[0]); FREE(T); } while(0)
 
 /* cost_t describes the cost of a cover */
 typedef struct cost_struct {
