@@ -200,9 +200,9 @@ typedef struct set_family {
     {                                                      \
         register int i_ = LOOPINIT(size);                  \
         *r = i_;                                           \
-        r[i_] = ((unsigned int)(~0)) >> (i_ * BPI - size); \
+        r[i_] = ~0u >> (i_ * BPI - size);                  \
         while (--i_ > 0)                                   \
-            r[i_] = ~0;                                    \
+            r[i_] = ~0u;                                   \
     }
 #define INLINEset_and(r, a, b)     \
     {                              \
