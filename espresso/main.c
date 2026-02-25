@@ -19,8 +19,7 @@
 static FILE *last_fp;
 static int input_type = FD_type;
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     int i, j, first, last, strategy, out_type, option;
     pPLA PLA, PLA1;
     pcover F, Fold, Dold;
@@ -543,8 +542,8 @@ int main(int argc, char *argv[])
     exit(0);
 }
 
-void getPLA(int opt, int argc, char *argv[], int option, pPLA *PLA, int out_type)
-{
+void getPLA(int opt, int argc, char *argv[], int option, pPLA *PLA,
+            int out_type) {
     FILE *fp;
     int needs_dcset, needs_offset;
     char *fname;
@@ -666,8 +665,8 @@ void usage() {
  *  Hack for backward compatibility (ACK! )
  */
 
-void backward_compatibility_hack(int *argc, char **argv, int *option, int *out_type)
-{
+void backward_compatibility_hack(int *argc, char **argv, int *option,
+                                 int *out_type) {
     int i, j;
 
     /* Scan the argument list for something to do (default is ESPRESSO) */
@@ -729,8 +728,7 @@ void backward_compatibility_hack(int *argc, char **argv, int *option, int *out_t
 }
 
 /* delete_arg -- delete an argument from the argument list */
-void delete_arg(int *argc, register char *argv[], int num)
-{
+void delete_arg(int *argc, register char *argv[], int num) {
     register int i;
     (*argc)--;
     for (i = num; i < *argc; i++) {
@@ -739,8 +737,7 @@ void delete_arg(int *argc, register char *argv[], int num)
 }
 
 /* check_arg -- scan argv for an argument, and return TRUE if found */
-bool check_arg(int *argc, register char *argv[], register char *s)
-{
+bool check_arg(int *argc, register char *argv[], register char *s) {
     register int i;
     for (i = 1; i < *argc; i++) {
         if (strcmp(argv[i], s) == 0) {
